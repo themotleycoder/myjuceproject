@@ -58,10 +58,12 @@ public:
 
     
 
-    void setVolume(float newVolume);
+    void updateReverb(float wetDry, float room, float damping);
 
 private:
-    float volume;
+    float wetDry;
+    float roomSize;
+    float damping;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MyjuceprojectAudioProcessor)

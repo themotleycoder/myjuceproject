@@ -26,7 +26,9 @@ MyjuceprojectAudioProcessor::MyjuceprojectAudioProcessor()
 
 MyjuceprojectAudioProcessor::~MyjuceprojectAudioProcessor()
 {
-    volume = 1.0f;
+    wetDry = 0.5f;
+    roomSize = 0.5f;
+    damping = 0.5f;
 }
 
 //==============================================================================
@@ -160,7 +162,7 @@ void MyjuceprojectAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer
         for (int j = 0; j < numSamples; ++j)
         {
             // Multiply the sample by the volume
-            channelData[j] *= volume;
+            //channelData[j] *= volume;
         }
     }
 }
@@ -197,7 +199,9 @@ juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
     return new MyjuceprojectAudioProcessor();
 }
 
-void MyjuceprojectAudioProcessor::setVolume(float newVolume)
+void MyjuceprojectAudioProcessor::updateReverb(float newWetDry, float newRoomSize, float newDamping)
 {
-    volume = newVolume;
+    wetDry = newWetDry;
+    roomSize = newRoomSize;
+    damping = newDamping;
 }

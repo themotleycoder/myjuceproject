@@ -32,7 +32,9 @@ private:
     // access the processor object that created it.
     MyjuceprojectAudioProcessor& audioProcessor;
 
-    juce::Slider volumeSlider;
+    juce::Slider wetDryMixSlider;
+    juce::Slider roomSizeSlider;
+    juce::Slider dampingSlider;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MyjuceprojectAudioProcessorEditor)
 };
